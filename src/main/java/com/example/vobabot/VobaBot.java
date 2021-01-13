@@ -1,10 +1,10 @@
 package com.example.vobabot;
 
-import com.example.vobabot.services.impl.SenderServiceImpl;
-import com.example.vobabot.services.impl.TextAnalyserService;
-import lombok.RequiredArgsConstructor;
+import com.example.vobabot.models.User;
+import com.example.vobabot.models.mappers.UserMapper;
+import com.example.vobabot.services.impl.UserServiceImpl;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -14,12 +14,12 @@ import com.example.vobabot.services.*;
 
 @Slf4j
 @Component
+@AllArgsConstructor
 public class VobaBot extends TelegramLongPollingBot {
-    @Autowired
     private SenderService senderService;
-
-    @Autowired
     private InputAnalyserService textAnalyserService;
+    private UserService userService;
+    private UserMapper userMapper;
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -31,8 +31,11 @@ public class VobaBot extends TelegramLongPollingBot {
             Long chatId = msg.getChatId();
             log.debug("textAnalyserService {}", textAnalyserService);
             String response = textAnalyserService.getResponse(msg);
+
+            userService.create(userMapper.getUser(msg));
+            String resDB = userService.getAll().get(1).toString();
             try {
-                execute(senderService.sendMessage(chatId, response)); // Call method to send the message
+                execute(senderService.sendMessage(chatId, resDB)); // Call method to send the message
             } catch (TelegramApiException e) {
                 e.printStackTrace();
             }
