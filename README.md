@@ -1,4 +1,4 @@
 # MyTelegramBot
 
 Kirill was here!
-Voba was here!
+Vlad was too!
