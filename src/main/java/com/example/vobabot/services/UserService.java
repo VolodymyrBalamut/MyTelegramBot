@@ -1,6 +1,6 @@
 package com.example.vobabot.services;
 
-import com.example.vobabot.models.User;
+import com.example.vobabot.models.entity.User;
 
 import java.util.List;
 
