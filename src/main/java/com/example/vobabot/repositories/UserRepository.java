@@ -1,6 +1,6 @@
 package com.example.vobabot.repositories;
 
-import com.example.vobabot.models.User;
+import com.example.vobabot.models.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,8 +1,6 @@
 package com.example.vobabot;
 
-import com.example.vobabot.models.User;
 import com.example.vobabot.models.mappers.UserMapper;
-import com.example.vobabot.services.impl.UserServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

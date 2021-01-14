@@ -1,10 +1,9 @@
 package com.example.vobabot.services.impl;
 
-import com.example.vobabot.models.User;
+import com.example.vobabot.models.entity.User;
 import com.example.vobabot.models.mappers.UserMapper;
 import com.example.vobabot.services.InputAnalyserService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Message;
 

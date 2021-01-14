@@ -1,6 +1,6 @@
 package com.example.vobabot.services.impl;
 
-import com.example.vobabot.models.User;
+import com.example.vobabot.models.entity.User;
 import com.example.vobabot.repositories.UserRepository;
 import com.example.vobabot.services.UserService;
 import lombok.AllArgsConstructor;

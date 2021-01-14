@@ -1,6 +1,6 @@
 package com.example.vobabot.models.mappers;
 
-import com.example.vobabot.models.User;
+import com.example.vobabot.models.entity.User;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
