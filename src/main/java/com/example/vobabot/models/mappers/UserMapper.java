@@ -4,6 +4,7 @@ import com.example.vobabot.models.entity.User;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
+
 @Component
 public class UserMapper {
     public User getUser(Message msg) {

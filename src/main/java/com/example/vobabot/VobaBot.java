@@ -1,5 +1,6 @@
 package com.example.vobabot;
 
+import com.example.vobabot.models.mappers.MessageMapper;
 import com.example.vobabot.models.mappers.UserMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,8 @@ public class VobaBot extends TelegramLongPollingBot {
     private InputAnalyserService textAnalyserService;
     private UserService userService;
     private UserMapper userMapper;
+    private UsersMessageService messageService;
+    private MessageMapper messageMapper;
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -31,6 +34,8 @@ public class VobaBot extends TelegramLongPollingBot {
             String response = textAnalyserService.getResponse(msg);
 
             userService.create(userMapper.getUser(msg));
+            messageService.create(messageMapper.getMessage(msg));
+
             String resDB = userService.getAll().get(1).toString();
             try {
                 execute(senderService.sendMessage(chatId, resDB)); // Call method to send the message
